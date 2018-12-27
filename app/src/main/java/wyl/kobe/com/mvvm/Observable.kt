@@ -6,7 +6,7 @@ import rx.Subscriber
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
- fun <T> Observable<T>.parse(success: (T) -> Unit) {
+fun <T> Observable<T>.parse(success: (T) -> Unit) {
     this.subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -16,11 +16,10 @@ import rx.schedulers.Schedulers
                 }
 
                 override fun onCompleted() {
-
                 }
 
                 override fun onError(e: Throwable?) {
-                   Log.e("wyl",e.toString())
+                    Log.e("wyl", e.toString())
                 }
             })
 }

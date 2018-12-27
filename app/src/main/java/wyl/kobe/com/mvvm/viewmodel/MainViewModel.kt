@@ -6,10 +6,10 @@ import wyl.kobe.com.mvvm.bean.JsonBean
 import wyl.kobe.com.mvvm.repository.MainRepository
 
 class MainViewModel : ViewModel() {
-    val repostitory: MainRepository by lazy { MainRepository() }
+    private val repertory: MainRepository by lazy { MainRepository() }
     var data: MutableLiveData<JsonBean> = MutableLiveData()
 
     fun getDataFromServer(){
-        repostitory.getDataFromServer(data)
+        repertory.getDataFromServer(data)
     }
 }
