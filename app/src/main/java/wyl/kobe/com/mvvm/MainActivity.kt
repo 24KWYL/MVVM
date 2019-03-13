@@ -1,8 +1,7 @@
 package wyl.kobe.com.mvvm
 
 import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -21,11 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        mModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                return MainViewModel() as T
-            }
-        })[MainViewModel::class.java]
+        mModel = ViewModelProviders.of(this)[MainViewModel::class.java]
         mModel.data?.observe(this, Observer {
             val mainAdapter = MainAdapter(this, it)
             val linearLayoutManager = LinearLayoutManager(this)
