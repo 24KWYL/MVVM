@@ -19,7 +19,6 @@ fun <T> Observable<T>.parse(success: (T) -> Unit) {
                 }
 
                 override fun onError(e: Throwable?) {
-                    Log.e("wyl", e.toString())
                 }
             })
 }
